@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나 전달법 글쓰기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Gowun Dodum', sans-serif;
+            background-color: #e0f7fa; /* Light cyan background */
+            color: #4a4a4a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+        header h1 {
+            font-family: 'Jua', sans-serif;
+            color: #00796b; /* Teal color */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-size: 3.5rem;
+        }
+        .example-button {
+            background-color: #80cbc4; /* Light teal */
+            color: #004d40;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Jua', sans-serif;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+            margin: 0.5rem;
+        }
+        .example-button:hover {
+            transform: translateY(-2px);
+            background-color: #4db6ac;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .example-button.active {
+            background-color: #00897b;
+            color: #fff;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .example-box {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-top: 2rem;
+            text-align: left;
+            min-height: 400px;
+        }
+        .example-content-box {
+            background-color: #e3f2fd; /* Light blue for content */
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .content-title {
+            font-family: 'Jua', sans-serif;
+            font-size: 1.5rem;
+            color: #1565c0; /* Blue */
+            margin-bottom: 0.5rem;
+        }
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            white-space: pre-wrap;
+        }
+        .info-title {
+            font-family: 'Jua', sans-serif;
+            font-size: 1.5rem;
+            color: #00796b; /* Teal */
+            margin-bottom: 1rem;
+        }
+        .info-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .info-list li {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+        .action {
+            color: #d32f2f; /* Red */
+        }
+        .feeling {
+            color: #f57c00; /* Orange */
+        }
+        .wish {
+            color: #0288d1; /* Light blue */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mx-auto">
+        <header class="mb-16">
+            <h1 class="font-bold mb-4">나 전달법 배우기</h1>
+            <p class="text-xl text-gray-600">갈등 상황을 육하원칙으로 정리하고, '나 전달법'으로 마음을 전달하는 법을 배워봐요!</p>
+        </header>
+
+        <div class="flex flex-wrap justify-center mb-8">
+            <button class="example-button active" onclick="showExample('0', this)">
+                친구와 다툼
+            </button>
+            <button class="example-button" onclick="showExample('1', this)">
+                부모님과의 갈등
+            </button>
+            <button class="example-button" onclick="showExample('2', this)">
+                형제/자매와의 갈등
+            </button>
+            <button class="example-button" onclick="showExample('3', this)">
+                약속 시간 갈등
+            </button>
+            <button class="example-button" onclick="showExample('4', this)">
+                학습 계획 갈등
+            </button>
+            <button class="example-button" onclick="showExample('5', this)">
+                역할 나누기 갈등
+            </button>
+        </div>
+
+        <div id="exampleBox" class="example-box">
+            <!-- 예시 내용이 여기에 표시됩니다 -->
+            <p class="text-gray-500 text-lg">위의 버튼을 눌러 다양한 예시를 확인해 보세요!</p>
+        </div>
+
+    </div>
+
+    <script>
+        const examples = [
+            {
+                title: "친구와 다툼",
+                who: "친구와 내가",
+                when: "어제 점심시간",
+                where: "교실에서",
+                what: "함께 만들기로 한 발표 자료",
+                how: "나는 내 생각대로 만들려고 했고, 친구는 자신의 의견만 옳다고 주장하며 싸움",
+                why: "나는 좋은 점수를 받고 싶었고, 친구는 자신이 생각한 방식으로 잘하고 싶었기 때문",
+                message: `어제 발표 자료를 만들 때, 네가 그 방법을 꼭 하고 싶어 했던 이유가 있었을 거라 생각해. 네가 그만큼 이번 발표를 중요하게 생각한다는 것도 알겠어.
+                
+그런데 <span class="action">내 의견을 무시한다고 느껴져서</span> 조금 <span class="feeling">서운한 마음이 들었어</span>. 나는 우리가 함께 만들어서 더 멋진 발표를 하고 싶었거든. 다음에 같이 무언가를 만들 때는 <span class="wish">서로의 의견을 한 번씩 이야기하고, 더 좋은 방법을 함께 찾으면 좋겠어</span>.`
+            },
+            {
+                title: "부모님과의 갈등",
+                who: "엄마와 내가",
+                when: "오늘 아침",
+                where: "거실에서",
+                what: "어지러진 방 상태",
+                how: "나는 '나중에 치울게'라고 말했고, 엄마는 화난 목소리로 '지금 당장 치우라'고 하심",
+                why: "나는 놀고 싶은 마음이 컸고, 엄마는 깨끗한 집에서 하루를 시작하고 싶으셨기 때문",
+                message: `엄마가 깨끗한 거실에서 하루를 시작하고 싶은 마음을 충분히 이해해요. 어지러운 거실을 보면 답답하고 마음이 불편하셨을 것 같아요.
+                
+그런데 엄마가 <span class="action">화를 내실 때</span>, 저는 엄마가 저를 미워하는 건가 싶어서 <span class="feeling">마음이 아팠어요</span>. 제가 조금 더 놀고 싶은 마음을 먼저 이야기했더라면 좋았을 텐데 죄송해요. 이제부터는 <span class="wish">놀기 전에 방을 깨끗하게 정리하고, 엄마가 마음 편히 쉴 수 있는 공간을 함께 만들고 싶어요</span>.`
+            },
+            {
+                title: "형제/자매와의 갈등",
+                who: "동생과 내가",
+                when: "매일 저녁",
+                where: "우리 방",
+                what: "정리되지 않은 장난감",
+                how: "동생이 장난감을 가지고 논 후 그대로 둠",
+                why: "동생은 놀이에 푹 빠져서 정리를 잊어버림",
+                message: `네가 장난감으로 신나게 놀고 싶은 마음을 이해해. 놀이가 정말 재미있어서 정리하는 것을 깜빡했을 수도 있다고 생각해.
+                
+그런데 <span class="action">나는 우리가 함께 쓰는 방이 어지러워지면</span> 물건을 찾기 힘들고, <span class="feeling">마음이 답답해</span>. <span class="wish">장난감을 가지고 논 후에는 함께 정리해준다면, 나는 마음이 훨씬 편안해질 것 같아</span>.`
+            },
+            {
+                title: "약속 시간 갈등",
+                who: "친구와 내가",
+                when: "오늘 오후 3시",
+                where: "놀이터 미끄럼틀 앞",
+                what: "만나기로 한 약속",
+                how: "친구가 30분 늦음",
+                why: "친구는 휴대폰 배터리가 없었고, 나는 미리 연락을 받지 못함",
+                message: `네가 늦었을 때는 혹시 무슨 일이 생겼나 걱정이 많이 되었어. 휴대폰 배터리가 없어서 연락을 못했다고 했을 때, '아, 그럴 수도 있겠구나' 하고 네 마음이 이해가 되었어.
+                
+하지만, 사실 <span class="action">혼자 30분 동안 기다리면서</span> 조금 <span class="feeling">외롭기도 하고 속상한 마음이 들었어</span>. 다음에는 우리 둘 다 이런 일이 없도록, <span class="wish">혹시 늦을 것 같으면 부모님 휴대폰으로라도 미리 연락을 해 줄 수 있을까? 서로의 마음을 생각하며 약속을 지키면 더 즐겁게 만날 수 있을 것 같아</span>.`
+            },
+            {
+                title: "학습 계획 갈등",
+                who: "선생님과 내가",
+                when: "매주 금요일",
+                where: "학원에서",
+                what: "수학 숙제",
+                how: "선생님은 숙제를 많이 내주셨고, 나는 너무 많아서 하기 싫었음",
+                why: "선생님은 내가 수학 실력이 더 늘기를 바라셨고, 나는 놀고 싶었음",
+                message: `선생님이 저희가 수학 실력이 늘 수 있도록 숙제를 많이 내주시는 마음을 이해해요. 저를 생각해주시는 마음 감사해요.
+                
+그런데 사실 <span class="action">숙제가 너무 많아서 숙제를 시작하기도 전에 힘이 빠지고</span>, <span class="feeling">'다 못하면 어떡하지' 하고 걱정하는 마음이 들었어요</span>. <span class="wish">다음에 숙제를 내주실 때 조금씩 나눠서 주시면 제가 부담 없이 더 열심히 해볼 수 있을 것 같아요</span>.`
+            },
+            {
+                title: "역할 나누기 갈등",
+                who: "모둠 친구들과 내가",
+                when: "오늘 아침",
+                where: "교실 모둠 책상에서",
+                what: "역할 나누기",
+                how: "서로 하고 싶은 역할만 주장함",
+                why: "모두가 발표하는 역할을 하고 싶었음",
+                message: `모두가 발표하는 역할을 하고 싶은 마음을 이해해. 재미있어 보이는 역할이니까 당연히 하고 싶을 거야.
+                
+그런데 <span class="action">아무도 다른 역할을 맡으려고 하지 않아서 내가 발표를 맡게 되었을 때</span>, <span class="feeling">'왜 나만 해야 하지?' 하고 속상한 마음이 들었어</span>. <span class="wish">다음에는 우리 모두가 한 번씩 돌아가면서 역할을 해보고, 서로의 마음을 생각해주면 좋겠어</span>.`
+            }
+        ];
+
+        function showExample(index, button) {
+            const example = examples[index];
+            const exampleBox = document.getElementById('exampleBox');
+
+            const contentHTML = `
+                <h2 class="info-title">갈등 상황 정리하기 (육하원칙)</h2>
+                <ul class="info-list">
+                    <li><strong class="text-teal-600">누가:</strong> ${example.who}</li>
+                    <li><strong class="text-teal-600">언제:</strong> ${example.when}</li>
+                    <li><strong class="text-teal-600">어디서:</strong> ${example.where}</li>
+                    <li><strong class="text-teal-600">무엇을:</strong> ${example.what}</li>
+                    <li><strong class="text-teal-600">어떻게:</strong> ${example.how}</li>
+                    <li><strong class="text-teal-600">왜:</strong> ${example.why}</li>
+                </ul>
+                <div class="example-content-box mt-8">
+                    <h2 class="info-title">나 전달법으로 마음 표현하기</h2>
+                    <p class="content-text">${example.message}</p>
+                </div>
+            `;
+            exampleBox.innerHTML = contentHTML;
+
+            // Update active button state
+            const buttons = document.querySelectorAll('.example-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        // Show the first example on page load
+        window.onload = function() {
+            showExample('0', document.querySelector('.example-button'));
+        };
+    </script>
+</body>
+</html>
